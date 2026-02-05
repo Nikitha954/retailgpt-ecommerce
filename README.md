@@ -1,80 +1,438 @@
-This is the Official repository of **Java Spring Boot: Professional eCommerce Project Masterclass** on Udemy
+# RetailGPT - AI-Powered eCommerce Platform 🚀
 
-# The Ultimate Java and Spring Boot Mastery Roadmap
+> **An intelligent eCommerce solution built with Spring Boot, React.js, and AWS Bedrock for Indian small retailers**
 
-Welcome to your one-stop-shop for mastering Java and Spring Boot! This repository offers a comprehensive learning experience with high-quality resources and community support. Dive into over 150+ hours of premium content, with everything you need to excel at Java and Spring Boot development.
+[![Java](https://img.shields.io/badge/Java-21-orange.svg)](https://www.oracle.com/java/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-4.0.1-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![React](https://img.shields.io/badge/React-18.x-blue.svg)](https://reactjs.org/)
+[![AWS Bedrock](https://img.shields.io/badge/AWS-Bedrock-yellow.svg)](https://aws.amazon.com/bedrock/)
+[![LangChain4j](https://img.shields.io/badge/LangChain4j-0.35.0-purple.svg)](https://github.com/langchain4j/langchain4j)
 
-## 🎓 Learning Roadmap
+## 🌟 Project Overview
 
-Most of the courses below are available in **Udemy For Business**, so if you have subscription - you can get FREE access.
-Here’s a structured path to enhance your skills with detailed courses available:
+RetailGPT is a GenAI-enhanced eCommerce platform designed specifically for small retailers in India. It combines traditional eCommerce functionality with cutting-edge AI capabilities to automate store management, provide intelligent business insights, and enhance customer experience.
 
-1. **[Spring Boot By Building Complex Projects Step by Step](https://link.embarkx.com/spring-boot) (90+ Hours of Content)**
-2. **[Master Spring Boot Microservices by Building eCommerce Project](https://link.embarkx.com/microservices) (55+ Hours of Content)**
-3. **[Full Stack AI DevOps for Software Developers (AWS, Azure, GCP)](https://link.embarkx.com/devops) (20+ Hours of Content)**
-4. **[Learn Java with 60+ Hours of Content](http://link.embarkx.com/java) (60+ Hours of Content)**
-5. **[Master Spring Security with React JS + OAuth2](https://link.embarkx.com/spring-security) (34+ Hours of Content)**
-6. **[Master IntelliJ IDEA](http://link.embarkx.com/intellij) (3+ Hours of Content)**
+### 🎯 Key Features
 
+- **🤖 Auto-Cataloging**: AI-powered product creation from images using AWS Bedrock
+- **📊 Conversational BI**: Natural language business analytics in Hindi/English
+- **💬 Smart Buyer Assistant**: WhatsApp-integrated customer support with RAG
+- **🔍 Semantic Search**: Vector-based product discovery
+- **� Multi-language Support**: Hindi and English interface
+- **📱 Mobile-First Design**: Responsive PWA for all devices
+- **🔐 Enterprise Security**: JWT authentication with role-based access
 
-## 🌟 With All Our Courses You Gain Access To
+## 🏗️ Architecture
 
-- 📝 **Notes:** Detailed and downloadable notes to accompany each lesson.
-- 💻 **Source Code:** Full access to the source code used in the tutorials.
-- 🤔 **Doubt Solving:** Responsive instructor and community support.
-- 🎥 **High-Quality HD Videos:** Easy to understand, high-definition video tutorials.
-- 🔄 **Free Lifetime Updates:** Continuous updates to course content at no extra cost.
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   React.js      │    │   WhatsApp      │    │   Admin Panel   │
+│   Frontend      │    │   Business API  │    │   Dashboard     │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         └───────────────────────┼───────────────────────┘
+                                 │
+         ┌─────────────────────────────────────────────────┐
+         │              API Gateway                        │
+         │           (Spring Cloud Gateway)                │
+         └─────────────────────────────────────────────────┘
+                                 │
+    ┌────────────────────────────┼────────────────────────────┐
+    │                            │                            │
+┌───▼────┐  ┌──────────┐  ┌─────▼─────┐  ┌──────────────┐   │
+│Product │  │Order     │  │User       │  │Analytics     │   │
+│Service │  │Service   │  │Service    │  │Service       │   │
+└────────┘  └──────────┘  └───────────┘  └──────────────┘   │
+    │           │              │              │              │
+    └───────────┼──────────────┼──────────────┼──────────────┘
+                │              │              │
+         ┌──────▼──────────────▼──────────────▼──────┐
+         │           Message Queue                   │
+         │         (Apache Kafka/RabbitMQ)          │
+         └──────────────────┬───────────────────────┘
+                            │
+    ┌───────────────────────▼───────────────────────┐
+    │              AI Processing Layer              │
+    │         (LangChain4j + AWS Bedrock)          │
+    └───────────────────────┬───────────────────────┘
+                            │
+    ┌───────────────────────▼───────────────────────┐
+    │              AWS Bedrock                      │
+    │    (Claude 3, Titan, Stable Diffusion)       │
+    └───────────────────────────────────────────────┘
 
-## 📚 Why Choose This Mastery Series?
+┌─────────────┐  ┌─────────────┐  ┌─────────────┐
+│   MySQL     │  │  Vector DB  │  │   Redis     │
+│(Transactional)│  │(Semantic   │  │  (Cache)    │
+│             │  │ Search)     │  │             │
+└─────────────┘  └─────────────┘  └─────────────┘
+```
 
-With this series, you're not just learning; you're preparing to dominate the field of Java and Spring Boot development. Our structured learning path ensures that you build your skills progressively, with each course designed to build on the knowledge gained from the previous one.
+## 🚀 Quick Start
 
-### Join Us Now!
+### Prerequisites
 
-Start your journey today to become a master at Java and Spring Boot. Our community and expert instructors are here to support your learning every step of the way. **Enroll and start building your future, today!**
+- **Java 21+**
+- **Node.js 18+**
+- **MySQL 8.0+**
+- **Redis 6.0+**
+- **AWS Account** with Bedrock access
+- **Maven 3.8+**
 
+### 1. Clone the Repository
 
+```bash
+git clone https://github.com/Nikitha954/retailgpt-ecommerce.git
+cd retailgpt-ecommerce
+```
 
+### 2. Backend Setup (Spring Boot)
 
+```bash
+cd sb-ecom
 
-# Usage Policy for Course Materials
+# Configure database
+cp src/main/resources/application.properties.example src/main/resources/application.properties
+# Edit application.properties with your database credentials
 
-## Instructor Information
+# Install dependencies and run
+./mvnw clean install
+./mvnw spring-boot:run
+```
 
-**Instructor:** Faisal Memon  
-**Company:** [EmbarkX.com](http://www.embarkx.com)
+### 3. Frontend Setup (React)
 
-## Policy Overview
+```bash
+cd ecom-frontend
 
-This document outlines the guidelines and restrictions concerning the use of course materials provided by EmbarkX, including but not limited to PDF presentations, code samples, and video tutorials.
+# Install dependencies
+npm install
 
-### 1. Personal Use Only
+# Start development server
+npm run dev
+```
 
-The materials provided in this course are intended for **your personal use only**. They are to be used solely for the purpose of learning and completing this course.
+### 4. AWS Bedrock Configuration
 
-### 2. No Unauthorized Sharing or Distribution
+```bash
+# Configure AWS credentials
+aws configure
 
-You are **not permitted** to share, distribute, or publicly post any course materials on any websites, social media platforms, or other public forums without prior written consent from the instructor.
+# Update application.properties
+aws.bedrock.region=us-east-1
+aws.bedrock.model=anthropic.claude-3-sonnet-20240229-v1:0
+```
 
-### 3. Intellectual Property
+## 📁 Project Structure
 
-All course materials are protected by copyright laws and are the intellectual property of Faisal Memon and EmbarkX. Unauthorized use, reproduction, or distribution of these materials is **strictly prohibited**.
+```
+retailgpt-ecommerce/
+├── 📄 README.md                    # This file
+├── 📄 Requirements.md              # Detailed requirements
+├── 📄 Design.md                   # System architecture
+├── 🗂️ sb-ecom/                    # Spring Boot Backend
+│   ├── 🗂️ src/main/java/com/ecommerce/project/
+│   │   ├── 🗂️ controller/         # REST Controllers
+│   │   ├── 🗂️ service/           # Business Logic
+│   │   ├── 🗂️ model/             # JPA Entities
+│   │   ├── 🗂️ config/            # Configuration
+│   │   └── 🗂️ security/          # Security & JWT
+│   ├── 📄 pom.xml                # Maven dependencies
+│   └── 📄 MARKETING_SERVICE_README.md
+├── 🗂️ ecom-frontend/              # React Frontend
+│   ├── 🗂️ src/
+│   │   ├── 🗂️ components/        # React Components
+│   │   ├── 🗂️ store/            # Redux Store
+│   │   └── 🗂️ api/              # API Integration
+│   └── 📄 package.json
+├── 🗂️ FirstSpring/               # Spring Boot Examples
+├── 🗂️ SpringExample/             # Spring Core Examples
+└── 🗂️ media/                     # Social Media Project
+```
 
-### 4. Reporting Violations
+## 🔧 Configuration
 
-If you become aware of any unauthorized sharing or distribution of course materials, please report it immediately to [embarkxofficial@gmail.com](mailto:embarkxofficial@gmail.com).
+### Database Configuration
 
-### 5. Legal Action
+```properties
+# MySQL Configuration
+spring.datasource.url=jdbc:mysql://localhost:3306/retailgpt
+spring.datasource.username=your_username
+spring.datasource.password=your_password
+spring.jpa.hibernate.ddl-auto=update
+```
 
-We reserve the right to take legal action against individuals or entities found to be violating this usage policy.
+### AWS Bedrock Configuration
 
-## Thank You
+```properties
+# AWS Bedrock Settings
+aws.bedrock.region=us-east-1
+aws.bedrock.model=anthropic.claude-3-sonnet-20240229-v1:0
+aws.bedrock.temperature=0.7
+aws.bedrock.max-tokens=500
+```
 
-Thank you for respecting these guidelines and helping us maintain the integrity of our course materials.
+### Security Configuration
 
-## Contact Information
+```properties
+# JWT Configuration
+spring.app.jwtSecret=your-secret-key
+spring.app.jwtExpirationMs=86400000
+```
 
-- **Email:** [embarkxofficial@gmail.com](mailto:embarkxofficial@gmail.com)
-- **Website:** [www.embarkx.com](http://www.embarkx.com)
+## 🔌 API Endpoints
+
+### Product Management
+```http
+POST   /api/products/auto-catalog          # AI-powered product creation
+GET    /api/products                       # List products
+GET    /api/products/search/semantic       # Semantic search
+POST   /api/products/{id}/generate-description # AI marketing copy
+```
+
+### Marketing AI Service
+```http
+GET    /api/marketing/description?productName=Wireless Headphones
+GET    /api/marketing/description/detailed?productName=Laptop&category=Electronics&price=50000
+```
+
+### Analytics & BI
+```http
+POST   /api/analytics/query                # Natural language queries
+GET    /api/analytics/reports/{type}       # Business reports
+```
+
+### Customer Assistant
+```http
+POST   /api/assistant/chat                 # Chat with AI assistant
+GET    /api/assistant/recommendations      # Product recommendations
+```
+
+## 🤖 AI Features
+
+### 1. Auto-Cataloging Service
+
+Upload product images and get AI-generated:
+- Product names (Hindi/English)
+- Detailed descriptions
+- Category suggestions
+- Price estimates
+
+```java
+@PostMapping("/auto-catalog")
+public ResponseEntity<ProductDTO> createProductFromImage(
+    @RequestParam("image") MultipartFile image,
+    @RequestParam(defaultValue = "en") String language
+) {
+    // AI processes image and generates product details
+}
+```
+
+### 2. Conversational Business Intelligence
+
+Ask business questions in natural language:
+- "Which products sold most last week?"
+- "कल कितनी बिक्री हुई?" (How much sales yesterday?)
+- "Do I need to restock rice?"
+
+### 3. Smart Customer Assistant
+
+WhatsApp-integrated customer support:
+- Product recommendations
+- Order assistance
+- Query resolution in Hindi/English
+
+## 🛠️ Development
+
+### Running Tests
+
+```bash
+# Backend tests
+cd sb-ecom
+./mvnw test
+
+# Frontend tests
+cd ecom-frontend
+npm test
+```
+
+### Building for Production
+
+```bash
+# Backend
+./mvnw clean package -DskipTests
+
+# Frontend
+npm run build
+```
+
+### Docker Deployment
+
+```bash
+# Build Docker image
+docker build -t retailgpt/backend:latest ./sb-ecom
+
+# Run with Docker Compose
+docker-compose up -d
+```
+
+## 📊 Features Demo
+
+### Auto-Cataloging Flow
+1. Upload product image
+2. AI analyzes image using AWS Bedrock
+3. Generates product details automatically
+4. Admin reviews and publishes
+
+### Conversational BI Example
+```
+User: "Show me top selling products this month"
+AI: Analyzing sales data...
+Response: "Top 3 products: 1) Basmati Rice (₹45,000), 2) Cotton Sarees (₹32,000), 3) Spice Mix (₹28,000)"
+```
+
+### Customer Assistant Example
+```
+Customer: "Do you have something for wedding under ₹2000?"
+Assistant: "Yes! I found 3 perfect options for weddings under ₹2000:
+1. Silk Saree - ₹1,800
+2. Gold-plated Jewelry Set - ₹1,500  
+3. Wedding Decoration Items - ₹1,200"
+```
+
+## 🔐 Security Features
+
+- **JWT Authentication** with refresh tokens
+- **Role-based Access Control** (Admin/Customer)
+- **API Rate Limiting** with Redis
+- **Input Validation** and sanitization
+- **SQL Injection Prevention**
+- **CORS Configuration**
+- **Data Encryption** at rest and in transit
+
+## 📈 Performance Optimization
+
+- **Redis Caching** for frequently accessed data
+- **Database Indexing** for optimized queries
+- **Lazy Loading** for large datasets
+- **Connection Pooling** with HikariCP
+- **CDN Integration** for static assets
+- **Async Processing** for AI operations
+
+## 🌐 Deployment
+
+### AWS Deployment
+- **ECS/EKS** for container orchestration
+- **RDS MySQL** for database
+- **ElastiCache Redis** for caching
+- **S3** for file storage
+- **CloudFront** for CDN
+- **Application Load Balancer**
+
+### CI/CD Pipeline
+```yaml
+# GitHub Actions workflow included
+- Automated testing
+- Docker image building
+- AWS deployment
+- Environment promotion
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
+
+### Development Guidelines
+- Follow Java coding standards
+- Write comprehensive tests
+- Update documentation
+- Use conventional commit messages
+
+## 📝 Documentation
+
+- **[Requirements.md](Requirements.md)** - Detailed project requirements
+- **[Design.md](Design.md)** - Complete system architecture
+- **[Marketing Service README](sb-ecom/MARKETING_SERVICE_README.md)** - AI service setup
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**Database Connection Issues:**
+```bash
+# Check MySQL service
+sudo systemctl status mysql
+
+# Verify credentials in application.properties
+```
+
+**AWS Bedrock Access:**
+```bash
+# Verify AWS credentials
+aws sts get-caller-identity
+
+# Check Bedrock permissions
+aws bedrock list-foundation-models
+```
+
+**Frontend Build Issues:**
+```bash
+# Clear node modules and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
+
+## 📊 Monitoring & Analytics
+
+- **Application Metrics** with Micrometer
+- **Health Checks** for all services
+- **Logging** with structured JSON format
+- **Performance Monitoring** with custom dashboards
+- **Error Tracking** and alerting
+
+## 🔮 Future Roadmap
+
+- [ ] **Multi-tenant Architecture** for multiple retailers
+- [ ] **Mobile Apps** (iOS/Android)
+- [ ] **Voice Commerce** integration
+- [ ] **AR/VR Product Visualization**
+- [ ] **Blockchain Supply Chain** tracking
+- [ ] **Advanced Analytics** with ML predictions
+- [ ] **Social Commerce** integration
+- [ ] **Marketplace Features**
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Team
+
+- **Developer:** Nikitha
+- **Architecture:** RetailGPT Team
+- **AI Integration:** LangChain4j + AWS Bedrock
+
+## 📞 Support
+
+- **Email:** support@retailgpt.com
+- **Documentation:** [Wiki](https://github.com/Nikitha954/retailgpt-ecommerce/wiki)
+- **Issues:** [GitHub Issues](https://github.com/Nikitha954/retailgpt-ecommerce/issues)
+
+## 🙏 Acknowledgments
+
+- **Spring Boot Team** for the excellent framework
+- **LangChain4j** for AI integration capabilities
+- **AWS Bedrock** for powerful AI models
+- **React Community** for frontend tools
+- **Open Source Contributors**
+
+---
+
+**⭐ Star this repository if you find it helpful!**
+
+**🔗 [Live Demo](https://retailgpt-demo.com) | [Documentation](https://docs.retailgpt.com) | [API Docs](https://api.retailgpt.com/swagger-ui.html)**
 
 
